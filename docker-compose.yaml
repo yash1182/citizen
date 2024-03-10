@@ -1,8 +1,10 @@
 services:
   citizen:
     image: citizen:1.0.0
+    container_name: citizen
     ports:
-      - 4000:4000
-    restart: always
-    extra_hosts:
-      - "localhost:host-gateway"
+    - 4000:4000
+    environment:
+      - SECRET_KEY=something
+      - MONGODB_URL=mongodb://devuser:123@localhost:27017
+    network_mode: "host" # to connect to localhost 
