@@ -1,0 +1,8 @@
+services:
+  citizen:
+    image: citizen:1.0.0
+    ports:
+      - 4000:4000
+    restart: always
+    extra_hosts:
+      - "localhost:host-gateway"
