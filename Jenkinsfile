@@ -11,6 +11,8 @@ pipeline {
       steps {
         sh '''DOCKER_REG_HOST=localhost:8083/nexus
 
+ls -a
+
 image_name=$(jq -r .name package.json)
 image_tag=$(jq -r .version package.json)
 
