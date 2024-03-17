@@ -8,7 +8,9 @@ pipeline {
     }
 
     stage('Docker Build') {
-      app = docker.build("yash1182/citizen")
+      steps{
+        app = docker.build("yash1182/citizen")
+      }
     }
 
   }
