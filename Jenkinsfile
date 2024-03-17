@@ -3,7 +3,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git(url: 'https://github.com/yash1182/citizen.git', branch: 'develop')
+        git(url: 'https://github.com/yash1182/citizen.git', branch: 'master')
       }
     }
 
