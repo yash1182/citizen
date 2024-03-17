@@ -9,10 +9,12 @@ pipeline {
 
     stage('Build') {
       steps {
-        echo 'Building Docker Image'
+        echo 'Getting image information'
         sh '''image_name=$(jq -r .name package.json)
 image_tag=$(jq -r .version package.json)
-
+'''
+        echo 'Building Docker Image'
+        sh '''
 sudo docker build . -t $image_name:$image_tag --network=host'''
         echo 'Tagging Image'
         sh '''DOCKER_REG_HOST=localhost:8083/nexus
