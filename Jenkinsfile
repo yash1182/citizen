@@ -7,5 +7,13 @@ pipeline {
       }
     }
 
+    stage('Build') {
+      steps {
+        sh '''directory=$(pwd);
+echo directory;
+docker build . citizen:1.0.0;'''
+      }
+    }
+
   }
 }
