@@ -8,8 +8,12 @@ pipeline {
     }
 
     stage('Docker Build') {
-      steps{
-        app = docker.build("yash1182/citizen")
+      steps {
+        sh '''
+        image_name=$(jq -r .name package.json)
+        image_tag=$(jq -r .version package.json)
+        echo "starting build"
+        sudo docker build . -t $image_name:$image_tag --network=host'''
       }
     }
 
