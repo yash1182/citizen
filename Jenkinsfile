@@ -10,7 +10,7 @@ pipeline {
     stage('Build') {
       steps {
         sh '''directory=$(pwd);
-docker build -t citizen:1.0.0 .'''
+sudo docker build -t citizen:1.0.0 .'''
       }
     }
 
